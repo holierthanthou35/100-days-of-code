@@ -25,10 +25,15 @@ screen.onkey(snake.left, "Left")
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    snake.extend()
     snake.move()
 
     if snake.head.distance(food_) < 10:
         food_.refresh()
         scores.score_counter()
+
+    if snake.head.xcor()>280 or snake.head.xcor()< -280 or snake.head.ycor()>280 or snake.head.ycor()< -280:
+        game_is_on = False
+        scores.game_over()
 
 screen.exitonclick()
