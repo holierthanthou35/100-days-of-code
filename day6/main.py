@@ -27,8 +27,8 @@ screen.onkey(l_paddle.up, "w")
 screen.onkey(l_paddle.down, "s")
 
 while game_is_on:
-    time.sleep(0.1)
     screen.update()
+    time.sleep(ball_.move_speed)
     ball_.move()
     ball_.collision_y_wall()
 
